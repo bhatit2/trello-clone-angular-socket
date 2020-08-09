@@ -1,0 +1,7 @@
+<div *ngIf="show">
+<div>
+    <textarea rows="3" cols="40" placeholder="Enter a title for this card" autofocus #title></textarea>
+</div>
+<button mat-raised-button color="primary" (click)="save(title.value)">Save</button>
+<button mat-raised-button color="warn" class="cancel-btn" (click)="onCancel()">Cancel</button>
+</div>

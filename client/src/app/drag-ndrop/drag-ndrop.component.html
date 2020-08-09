@@ -1,0 +1,38 @@
+<div cdkDropListGroup>
+  <div class="example-container">
+    <div cdkDropList [cdkDropListData]="cols.todo" class="example-list" (cdkDropListDropped)="drop($event)">
+      <h3>To do</h3>
+      <mat-card class="card" *ngFor="let item of cols.todo" cdkDrag>{{item}}</mat-card>
+      <app-add-item 
+      [show]="showTodoAddItem" 
+      (addCard)="addTodoCard($event)" 
+      (cancel)="toggleTodoAddItem()"></app-add-item>
+      <button mat-button (click)="toggleTodoAddItem()" *ngIf="!showTodoAddItem">Add another card</button>
+    </div>
+
+  </div>
+
+  <div class="example-container">
+    <div cdkDropList [cdkDropListData]="cols.doing" class="example-list" (cdkDropListDropped)="drop($event)">
+      <h3>Doing</h3>
+      <mat-card class="card" *ngFor="let item of cols.doing" cdkDrag>{{item}}</mat-card>
+      <app-add-item 
+      [show]="showDoingAddItem" 
+      (addCard)="addDoingCard($event)" 
+      (cancel)="toggleDoingAddItem()"></app-add-item>
+      <button mat-button (click)="toggleDoingAddItem()" *ngIf="!showDoingAddItem">Add another card</button>
+    </div>
+  </div>
+  <div class="example-container">
+
+    <div cdkDropList [cdkDropListData]="cols.done" class="example-list" (cdkDropListDropped)="drop($event)">
+      <h3>Done</h3>
+      <mat-card class="card" *ngFor="let item of cols.done" cdkDrag>{{item}}</mat-card>
+      <app-add-item 
+      [show]="showDoneAddItem" 
+      (addCard)="addDoneCard($event)" 
+      (cancel)="toggleDoneAddItem()"></app-add-item>
+      <button mat-button (click)="toggleDoneAddItem()" *ngIf="!showDoneAddItem">Add another card</button>
+    </div>
+  </div>
+</div>
